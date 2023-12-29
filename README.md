@@ -53,7 +53,7 @@ create_figures.R: generates tables of binary classification outcomes and ROC cur
 <br>
 <br>
 
-<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/668be5b5-2a19-4607-9bdc-7dd9c89917d5" width="700" height="400">
+<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/56c80ebb-e508-42d8-af78-6f27c734d33f" width="700" height="400">
 
 <br> 
 
