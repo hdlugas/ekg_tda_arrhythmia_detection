@@ -24,11 +24,13 @@ fig_pers_diagram_example.py: creates figure of toy example shown below
 get_ml_input_all.py: creates dataframe with each row corresponding to an ECG signal and with column representing predictor variables for use in statistical models
 
 models/: this directory contains a script for each type of statistical model used in each of the three binary classifications
+
+create_figures.R: generates tables of binary classification outcomes and ROC curves
 <br> 
-<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/211637e6-b929-4db1-9e01-4f21af61bcc0" width="500" height="400">
+<img src="[https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/211637e6-b929-4db1-9e01-4f21af61bcc0](https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/5b4a2e9f-f9d9-460b-b759-f928b9c58dae)" width="500" height="400">
 <br> 
-<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/f5a2ae9a-44da-4844-bbad-79a06d987ce9" width="500" height="400">
+<img src="[https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/f5a2ae9a-44da-4844-bbad-79a06d987ce9](https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/0abdb370-985d-4d7f-998a-803da92265f1)" width="500" height="400">
 <br> 
-<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/c5cd0c89-70d3-4ce6-8c0e-77e7d2487562" width="500" height="400">
+<img src="[https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/c5cd0c89-70d3-4ce6-8c0e-77e7d2487562](https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/668be5b5-2a19-4607-9bdc-7dd9c89917d5)https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/668be5b5-2a19-4607-9bdc-7dd9c89917d5" width="500" height="400">
 
 
