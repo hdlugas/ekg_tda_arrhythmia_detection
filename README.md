@@ -6,13 +6,13 @@ cycles.py: contains functions to compute the time-coordinate and amplitude coord
 
 get_signal_info.py: processes raw ECG signal by normalizing its amplitude to be confined to [0,1], introduces isoelectric baseline, and computes and saves persistent homology-derived statistics such as birth radii, death radii, persistence, and centroid coordinates of optimal representative cycles.
 
-fig_vietoris_rips_example.py: creates figure of toy example
+fig_vietoris_rips_example.py: creates figure of toy example shown below
 <br> 
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/77d18e87-2d0e-4f90-a54f-cd3341a3683d" width="500" height="400">
 
-fig_pers_diagram_example.py: creates figure of toy example
+fig_pers_diagram_example.py: creates figure of toy example shown below
 <br> 
-<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/1b733b0f-b852-4680-a5c3-7b27b5fbac05" width="150" height="280">
+<img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/1b733b0f-b852-4680-a5c3-7b27b5fbac05" width="400" height="500">
 
 get_ml_input_all.py: creates dataframe with each row corresponding to an ECG signal and with column representing predictor variables for use in statistical models
 
