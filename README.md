@@ -25,7 +25,7 @@ get_ml_input_all.py: creates dataframe with each row corresponding to an ECG sig
 
 models/: this directory contains a script for each type of statistical model used in each of the three binary classifications
 
-create_figures.R: generates tables of binary classification outcomes and ROC curves
+create_figures.R: generates tables of binary classification outcomes and ROC curves shown below
 
 <br> 
 
