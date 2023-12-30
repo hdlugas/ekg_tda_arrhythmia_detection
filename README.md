@@ -18,6 +18,7 @@ get_ml_input_all.py: creates dataframe with each row corresponding to an ECG sig
 models/: this directory contains a script for each type of statistical model used in each of the three binary classifications
 
 flowchart.tex: the LaTeX code used to produce the flowchart below
+<br>
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/8a671f40-32e0-418e-98ab-c8e79917071d" width="300" height="600">
 
 fig_vietoris_rips_example.py: creates figure of toy example shown below
