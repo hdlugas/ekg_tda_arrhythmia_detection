@@ -22,17 +22,23 @@ flowchart.tex: the LaTeX code used to produce the flowchart below
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/8a671f40-32e0-418e-98ab-c8e79917071d" width="300" height="600">
 
 <br>
+<br>
+<br>
 
 fig_vietoris_rips_example.py: creates figure of toy example shown below
 <br> 
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/77d18e87-2d0e-4f90-a54f-cd3341a3683d" width="500" height="400">
 
 <br>
+<br>
+<br>
 
 fig_pers_diagram_example.py: creates figure of toy example shown below
 <br> 
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/1b733b0f-b852-4680-a5c3-7b27b5fbac05" width="400" height="500">
 
+<br>
+<br>
 <br>
 
 create_figures.R: generates tables of binary classification outcomes and ROC curves shown below
