@@ -5,36 +5,15 @@ library(dplyr)
 library(gbm)
 library(randomForest)
 
-
 set.seed(1)
-
 path_ml_input_final = '/wsu/home/fy/fy73/fy7392/ekg/afib2/ml_input_final/input'
-
-df_tmp = read.csv(paste(path_ml_input_final, '5.csv', sep='')) 
-n_sigs = 10605
-k = 5
-k_fold_cv_idxs = c()
-idxs_all = seq(1,n_sigs,1)
-idxs_afib = which(df_tmp$rhythm == 'AFIB')
-idxs_nonafib = which(df_tmp$rhythm != 'AFIB')
-for (i in 1:k){
-  grp_idxs_afib = sample(idxs_afib, round(1780/k), replace = FALSE)
-  grp_idxs_nonafib = sample(idxs_nonafib, round(8825/k), replace = FALSE)
-  idxs_fold = append(grp_idxs_afib, grp_idxs_nonafib)
-  idxs_afib = setdiff(idxs_afib, grp_idxs_afib)
-  idxs_nonafib = setdiff(idxs_nonafib, grp_idxs_nonafib)
-  k_fold_cv_idxs = cbind(k_fold_cv_idxs, idxs_fold)
-}
-
-
-
+k_fold_cv_idxs = read.csv('/home/hunter/ekg/afib2/k_fold_cv_idxs_afib.csv')
 
 
 ns = seq(5,30,1)
 args = commandArgs(trailingOnly=TRUE)
 idx = as.integer(args[[1]])
 n = ns[idx]
-
 
 ############### Gradient Boosted Model ###############
 param_list_ntrees = c(500,1250,2000,3000)
