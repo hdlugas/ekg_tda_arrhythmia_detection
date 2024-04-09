@@ -3,7 +3,7 @@ This repository contains scripts related to the manuscript "Electrocardiogram ar
 
 <br>
 
-Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection have been performed, several of which combine persistent homology and machine learning. We present a novel ECG signal processing pipeline and method of constructing predictor variables for use in statistical models. Specifically, we introduce an isoelectric baseline to yield non-trivial topological features corresponding to the P, Q, S, and T-waves (if they exist) and utilize the $N$-most persistent 1-dimensional homological features and their corresponding area-minimal cycle representatives to construct predictor variables derived from the persistent homology of the ECG signal. The binary classification of (1) Atrial Fibrillation vs. Non-Atrial Fibrillation, (2) Arrhythmia vs. Normal Sinus Rhythm, and (3) Arrhythmias with Morphological Changes vs. Sinus Rhythm with Bradycardia and Tachycardia Treated as Non-Arrhythmia was performed using Logistic Regression, Linear Discriminant Analysis, Quadratic Discriminant Analysis, Naive Bayes, Random Forest, Gradient Boosted Decision Tree, K-Nearest Neighbors, and Support Vector Machine with a linear, radial, and polynomial kernel Models with stratified 5-fold cross validation. The Gradient Boosted Decision Tree Model attained the best results with a mean F1-score and mean Accuracy of $(0.9677,0.946)$, $(0.839,0.946)$, and $(0.943,0.921)$ across the five folds for binary classifications of (1), (2), and (3), respectively.
+Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection have been performed, several of which combine persistent homology and machine learning. We present a novel ECG signal processing pipeline and method of constructing predictor variables for use in statistical models. Specifically, we introduce an isoelectric baseline to yield non-trivial topological features corresponding to the P, Q, S, and T-waves (if they exist) and utilize the $N$-most persistent 1-dimensional homological features and their corresponding area-minimal cycle representatives to construct predictor variables derived from the persistent homology of the ECG signal. The binary classification of (1) Atrial Fibrillation vs. Non-Atrial Fibrillation, (2) Arrhythmia vs. Normal Sinus Rhythm, and (3) Arrhythmias with Morphological Changes vs. Sinus Rhythm with Bradycardia and Tachycardia Treated as Non-Arrhythmia was performed using Logistic Regression, Linear Discriminant Analysis, Quadratic Discriminant Analysis, Naive Bayes, Random Forest, Gradient Boosted Decision Tree, K-Nearest Neighbors, and Support Vector Machine with a linear, radial, and polynomial kernel Models with stratified 5-fold cross validation. The Gradient Boosted Decision Tree Model attained the best results with a mean F1-score and mean Accuracy of $(0.967,0.946)$, $(0.839,0.946)$, and $(0.943,0.921)$ across the five folds for binary classifications of (1), (2), and (3), respectively.
 
 <br>
 
@@ -28,7 +28,8 @@ flowchart.tex: the LaTeX code used to produce the flowchart below
 <br>
 <br>
 
-fig_vietoris_rips_example.py: creates figure of toy example shown below
+fig_vietoris_rips_example.py: creates figure of toy example shown below[Uploading vietoris_rips_example.eps…]()
+
 <br> 
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/77d18e87-2d0e-4f90-a54f-cd3341a3683d" width="800" height="600">
 
