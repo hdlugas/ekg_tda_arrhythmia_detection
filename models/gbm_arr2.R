@@ -6,36 +6,8 @@ library(gbm)
 library(randomForest)
 
 set.seed(1)
-
 path_ml_input_final = '/wsu/home/fy/fy73/fy7392/ekg/afib2/ml_input_final/input'
-df_tmp = read.csv(paste(path_ml_input_final, '5.csv', sep=''))
-n_sigs = 10605
-k = 5
-k_fold_cv_idxs = c()
-idxs_all = seq(1,n_sigs,1)
-idxs_arr = which(df_tmp$rhythm != 'SR' & df_tmp$rhythm != 'SB' & df_tmp$rhythm != 'ST')
-idxs_sr = which(df_tmp$rhythm == 'SR' | df_tmp$rhythm == 'SB' | df_tmp$rhythm == 'ST')
-for (i in 1:k){
-  if (i < k){
-    grp_idxs_arr = sample(idxs_arr, round(3323/k), replace = FALSE)
-    grp_idxs_sr = sample(idxs_sr, round(7282/k), replace = FALSE)
-    idxs_fold = append(grp_idxs_arr, grp_idxs_sr)
-    idxs_arr = setdiff(idxs_arr, grp_idxs_arr)
-    idxs_sr = setdiff(idxs_sr, grp_idxs_sr)
-    k_fold_cv_idxs = cbind(k_fold_cv_idxs, idxs_fold)
-  } else{
-    grp_idxs_arr = idxs_arr
-    grp_idxs_sr = idxs_sr
-    idxs_fold = append(grp_idxs_arr, grp_idxs_sr)
-    idxs_arr = setdiff(idxs_arr, grp_idxs_arr)
-    idxs_sr = setdiff(idxs_sr, grp_idxs_sr)
-    k_fold_cv_idxs = cbind(k_fold_cv_idxs, idxs_fold)
-  }
-}
-
-
-
-
+k_fold_cv_idxs = read.csv('/home/hunter/ekg/afib2/k_fold_cv_idxs_arr2.csv')
 
 ns = seq(5,30,1)
 args = commandArgs(trailingOnly=TRUE)
