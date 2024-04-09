@@ -7,16 +7,19 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 <br>
 
-Descriptions of files:
+## Descriptions of directories:
 
-cycles.py: contains functions to compute the time-coordinate and amplitude coordinate of the centroid of a given 1-cycle.
+### processing: contains the three scripts used to obtain input for the statistical models from the raw ECG data
 
-get_signal_info.py: processes raw ECG signal by normalizing its amplitude to be confined to [0,1], introduces isoelectric baseline, and computes and saves persistent homology-derived statistics such as birth radii, death radii, persistence, and centroid coordinates of optimal representative cycles.
+* cycles.py: contains functions to compute the time-coordinate and amplitude coordinate of the centroid of a given 1-cycle.
 
-get_ml_input_all.py: creates dataframe with each row corresponding to an ECG signal and with column representing predictor variables for use in statistical models
+* get_signal_info.py: processes raw ECG signal by normalizing its amplitude to be confined to [0,1], introduces isoelectric baseline, and computes and saves persistent homology-derived statistics such as birth radii, death radii, persistence, and centroid coordinates of optimal representative cycles.
 
-models/: this directory contains a script for each type of statistical model used in each of the three binary classifications
+* get_ml_input_all.py: creates dataframe with each row corresponding to an ECG signal and with column representing predictor variables for use in statistical models
 
+### models: this directory contains a script for each type of statistical model used in each of the three binary classifications
+
+### figures: contains scripts used to produce all figures in manuscript
 flowchart.tex: the LaTeX code used to produce the flowchart below
 <br>
 <img src="https://github.com/hdlugas/ekg_tda_arrhythmia_detection/assets/73852653/8a671f40-32e0-418e-98ab-c8e79917071d" width="300" height="600">
