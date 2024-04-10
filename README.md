@@ -19,5 +19,5 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 ### models: this directory contains a script for each type of statistical model used in each of the three binary classifications
 
-### figures: contains scripts used to produce all figures in manuscript
+### figures: contains scripts used to produce all figures and tables in manuscript
 
