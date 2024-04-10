@@ -1,5 +1,5 @@
 # Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors
-This repository contains scripts related to the manuscript "Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors" submitted to the Journal "Data Science Methods, Infrastructure, and Applications". The abstract of the manuscript is shown below.
+This repository contains scripts related to the manuscript "[Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors](https://datasciencehub.net/system/files/ds-paper-790.pdf)" submitted to the Journal "Data Science Methods, Infrastructure, and Applications" in December of 2023. The abstract of the manuscript is shown below.
 
 <br>
 
