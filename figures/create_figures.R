@@ -39,19 +39,6 @@ t
 
 
 
-fname_tmp = diagnostics$FileName[which(diagnostics$Rhythm=='SR')[1]]
-ekg_tmp = read.csv(paste('/home/hunter/ekg/ECGDataDenoised/', fname_tmp, '.csv', sep=''))[,2]
-df_ekg = data.frame(TIME=seq(0,10,10/(length(ekg_tmp)-1)), AMPLITUDE=ekg_tmp)
-
-
-##### get figure depicting preprocessing transformations #####
-
-
-
-
-##### get figure depicting how the isoelectric baseline produces topological features corresponding to the P, Q, S, and T waves #####
-
-
 
 
 afib_dir = '/home/hunter/ekg/afib2/ml_output_final/afib/'
