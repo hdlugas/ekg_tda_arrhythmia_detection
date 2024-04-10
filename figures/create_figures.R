@@ -41,6 +41,7 @@ t
 
 
 
+##### get table of mean and SD evaluation metrics across the five folds #####
 afib_dir = '/home/hunter/ekg/afib2/ml_output_final/afib/'
 arr_dir = '/home/hunter/ekg/afib2/ml_output_final/arr/'
 arr2_dir = '/home/hunter/ekg/afib2/ml_output_final/arr2/'
@@ -80,7 +81,6 @@ get_opt_thresh_and_N_lr = function(path){
   opt_n = f1_final[idx_tmp,2] + 4
   return(c(opt_thresh, opt_n))
 }
-
 
 
 get_opt_thresh_and_N_lda = function(path){
@@ -153,7 +153,6 @@ get_opt_thresh_and_N_qda = function(path){
 }
 
 
-
 get_opt_thresh_and_N_nb = function(path){
   threshs = seq(1,99,1)
   threshs = threshs / 100
@@ -187,7 +186,6 @@ get_opt_thresh_and_N_nb = function(path){
   opt_n = f1_final[idx_tmp,2] + 4
   return(c(opt_thresh, opt_n))
 }
-
 
 
 get_opt_thresh_and_N_rf = function(path, opt_N, ntree, mtry){
@@ -250,7 +248,6 @@ get_opt_thresh_and_N_gbm = function(path, opt_N, ntree, id){
   opt_thresh = f1_final[idx_tmp,1]
   return(c(opt_thresh))
 }
-
 
 
 
@@ -339,7 +336,6 @@ opt_D_svm_poly_arr = 2
 opt_N_svm_poly_arr2 = 16
 opt_D_svm_poly_arr2 = 2
 
-
 get_col_lr = function(path, opt_thresh, opt_N){
   accs_tmp = c()
   sens_tmp = c()
@@ -402,7 +398,6 @@ get_col_lda = function(path, opt_thresh, opt_N){
       f1_tmp = append(f1_tmp, 2*TP / (2*TP + FP + FN))
     }
   }
-  #return(c(mean(f1_tmp), mean(accs_tmp), mean(sens_tmp), mean(spec_tmp), mean(ppv_tmp), mean(npv_tmp), opt_N))
   return(c(paste(sprintf('%0.3f',mean(f1_tmp)), '+-', sprintf('%0.3f',sd(f1_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(accs_tmp)), '+-', sprintf('%0.3f',sd(accs_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(sens_tmp)), '+-', sprintf('%0.3f',sd(sens_tmp)), sep=' '),
@@ -439,7 +434,6 @@ get_col_qda = function(path, opt_thresh, opt_N){
       f1_tmp = append(f1_tmp, 2*TP / (2*TP + FP + FN))
     }
   }
-  #return(c(mean(f1_tmp), mean(accs_tmp), mean(sens_tmp), mean(spec_tmp), mean(ppv_tmp), mean(npv_tmp), opt_N))
   return(c(paste(sprintf('%0.3f',mean(f1_tmp)), '+-', sprintf('%0.3f',sd(f1_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(accs_tmp)), '+-', sprintf('%0.3f',sd(accs_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(sens_tmp)), '+-', sprintf('%0.3f',sd(sens_tmp)), sep=' '),
@@ -476,7 +470,6 @@ get_col_nb = function(path, opt_thresh, opt_N){
       f1_tmp = append(f1_tmp, 2*TP / (2*TP + FP + FN))
     }
   }
-  #return(c(mean(f1_tmp), mean(accs_tmp), mean(sens_tmp), mean(spec_tmp), mean(ppv_tmp), mean(npv_tmp), opt_N))
   return(c(paste(sprintf('%0.3f',mean(f1_tmp)), '+-', sprintf('%0.3f',sd(f1_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(accs_tmp)), '+-', sprintf('%0.3f',sd(accs_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(sens_tmp)), '+-', sprintf('%0.3f',sd(sens_tmp)), sep=' '),
@@ -514,7 +507,6 @@ get_col_rf = function(path, opt_thresh, opt_N, ntree, mtry){
       f1_tmp = append(f1_tmp, 2*TP / (2*TP + FP + FN))
     }
   }
-  #return(c(mean(f1_tmp), mean(accs_tmp), mean(sens_tmp), mean(spec_tmp), mean(ppv_tmp), mean(npv_tmp), opt_N))
   return(c(paste(sprintf('%0.3f',mean(f1_tmp)), '+-', sprintf('%0.3f',sd(f1_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(accs_tmp)), '+-', sprintf('%0.3f',sd(accs_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(sens_tmp)), '+-', sprintf('%0.3f',sd(sens_tmp)), sep=' '),
@@ -552,7 +544,6 @@ get_col_gbm = function(path, opt_thresh, opt_N, ntree, id){
       f1_tmp = append(f1_tmp, 2*TP / (2*TP + FP + FN))
     }
   }
-  #return(c(mean(f1_tmp), mean(accs_tmp), mean(sens_tmp), mean(spec_tmp), mean(ppv_tmp), mean(npv_tmp), opt_N))
   return(c(paste(sprintf('%0.3f',mean(f1_tmp)), '+-', sprintf('%0.3f',sd(f1_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(accs_tmp)), '+-', sprintf('%0.3f',sd(accs_tmp)), sep=' '),
            paste(sprintf('%0.3f',mean(sens_tmp)), '+-', sprintf('%0.3f',sd(sens_tmp)), sep=' '),
@@ -561,7 +552,6 @@ get_col_gbm = function(path, opt_thresh, opt_N, ntree, id){
            paste(sprintf('%0.3f',mean(npv_tmp)), '+-', sprintf('%0.3f',sd(npv_tmp)), sep=' '),
            opt_N))
 }
-
 
 
 get_col_knn = function(path, opt_K, opt_N, type){
@@ -574,15 +564,15 @@ get_col_knn = function(path, opt_K, opt_N, type){
   ppvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/ppvs_all_folds.csv', sep=''))[,1]
   npvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/npvs_all_folds.csv', sep=''))[,1]
   f1s = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/f1s_all_folds.csv', sep=''))[,1]
-  #return(c(df$F1[idx], df$accuracy[idx], df$sensitivity[idx], df$specificities[idx], df$PPV[idx], df$NPV[idx], opt_N))
-  return(c(paste(sprintf('%0.3f',df$F1[idx]), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
-           paste(sprintf('%0.3f',df$accuracy[idx]), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
-           paste(sprintf('%0.3f',df$sensitivity[idx]), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
-           paste(sprintf('%0.3f',df$specificities[idx]), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
-           paste(sprintf('%0.3f',df$PPV[idx]), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
-           paste(sprintf('%0.3f',df$NPV[idx]), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
+  return(c(paste(sprintf('%0.3f',mean(f1s)), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
+           paste(sprintf('%0.3f',mean(accs)), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
+           paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
+           paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
+           paste(sprintf('%0.3f',mean(ppvs)), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
+           paste(sprintf('%0.3f',mean(npvs)), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
            opt_N))
 }
+
 
 get_col_svm_lin = function(path, opt_N, type){
   dir = paste(path, 'svm_lin/accuracies_n', as.character(opt_N), '.csv', sep='')
@@ -594,73 +584,54 @@ get_col_svm_lin = function(path, opt_N, type){
   ppvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_lin/', type, '/ppvs_all_folds.csv', sep=''))[,1]
   npvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_lin/', type, '/npvs_all_folds.csv', sep=''))[,1]
   f1s = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_lin/', type, '/f1s_all_folds.csv', sep=''))[,1]
-  return(c(paste(sprintf('%0.3f',df$F1[idx]), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
-           paste(sprintf('%0.3f',df$accuracy[idx]), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
-           paste(sprintf('%0.3f',df$sensitivity[idx]), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
-           paste(sprintf('%0.3f',df$specificities[idx]), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
-           paste(sprintf('%0.3f',df$PPV[idx]), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
-           paste(sprintf('%0.3f',df$NPV[idx]), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
+  return(c(paste(sprintf('%0.3f',mean(f1s)), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
+           paste(sprintf('%0.3f',mean(accs)), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
+           paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
+           paste(sprintf('%0.3f',mean(specs)), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
+           paste(sprintf('%0.3f',mean(ppvs)), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
+           paste(sprintf('%0.3f',mean(npvs)), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
            opt_N))
-  # return(c(df$F1[idx], df$accuracy[idx], df$sensitivity[idx], df$specificities[idx], df$PPV[idx], df$NPV[idx], opt_N))
 }
+
 
 get_col_svm_rad = function(path, opt_N, opt_G, type){
   dir = paste(path, 'svm_rad/accuracies_n', as.character(opt_N), '.csv', sep='')
   df = read.csv(dir)
   idx = which(df$gamma == opt_G)
-  # return(c(df$F1[idx], df$accuracy[idx], df$sensitivity[idx], df$specificities[idx], df$PPV[idx], df$NPV[idx], opt_N))
   accs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/accuracies_all_folds.csv', sep=''))[,1]
   sens = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/sensitivities_all_folds.csv', sep=''))[,1]
   specs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/specificities_all_folds.csv', sep=''))[,1]
   ppvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/ppvs_all_folds.csv', sep=''))[,1]
   npvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/npvs_all_folds.csv', sep=''))[,1]
   f1s = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_rad/', type, '/f1s_all_folds.csv', sep=''))[,1]
-  return(c(paste(sprintf('%0.3f',df$F1[idx]), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
-           paste(sprintf('%0.3f',df$accuracy[idx]), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
-           paste(sprintf('%0.3f',df$sensitivity[idx]), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
-           paste(sprintf('%0.3f',df$specificities[idx]), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
-           paste(sprintf('%0.3f',df$PPV[idx]), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
-           paste(sprintf('%0.3f',df$NPV[idx]), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
+  return(c(paste(sprintf('%0.3f',mean(f1s)), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
+           paste(sprintf('%0.3f',mean(accs)), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
+           paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
+           paste(sprintf('%0.3f',mean(specs)), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
+           paste(sprintf('%0.3f',mean(ppvs)), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
+           paste(sprintf('%0.3f',mean(npvs)), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
            opt_N))
 }
+
 
 get_col_svm_poly = function(path, opt_N, opt_D, type){
   dir = paste(path, 'svm_poly/accuracies_n', as.character(opt_N), '.csv', sep='')
   df = read.csv(dir)
   idx = which(df$degree == opt_D)
-  # return(c(df$F1[idx], df$accuracy[idx], df$sensitivity[idx], df$specificities[idx], df$PPV[idx], df$NPV[idx], opt_N))
   accs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/accuracies_all_folds.csv', sep=''))[,1]
   sens = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/sensitivities_all_folds.csv', sep=''))[,1]
   specs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/specificities_all_folds.csv', sep=''))[,1]
   ppvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/ppvs_all_folds.csv', sep=''))[,1]
   npvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/npvs_all_folds.csv', sep=''))[,1]
   f1s = read.csv(paste('/home/hunter/ekg/afib2/ml_output_svm_poly/', type, '/f1s_all_folds.csv', sep=''))[,1]
-  return(c(paste(sprintf('%0.3f',df$F1[idx]), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
-           paste(sprintf('%0.3f',df$accuracy[idx]), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
-           paste(sprintf('%0.3f',df$sensitivity[idx]), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
-           paste(sprintf('%0.3f',df$specificities[idx]), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
-           paste(sprintf('%0.3f',df$PPV[idx]), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
-           paste(sprintf('%0.3f',df$NPV[idx]), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
+  return(c(paste(sprintf('%0.3f',mean(f1s)), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
+           paste(sprintf('%0.3f',mean(accs)), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
+           paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
+           paste(sprintf('%0.3f',mean(specs)), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
+           paste(sprintf('%0.3f',mean(ppvs)), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
+           paste(sprintf('%0.3f',mean(npvs)), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
            opt_N))
 }
-
-
-# get_col_knn = function(type,opt_N){
-#   accs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/accuracies_all_folds.csv', sep=''))[,1]
-#   sens = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/sensitivities_all_folds.csv', sep=''))[,1]
-#   specs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/specificities_all_folds.csv', sep=''))[,1]
-#   ppvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/ppvs_all_folds.csv', sep=''))[,1]
-#   npvs = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/npvs_all_folds.csv', sep=''))[,1]
-#   f1s = read.csv(paste('/home/hunter/ekg/afib2/ml_output_knn/', type, '/f1s_all_folds.csv', sep=''))[,1]
-#   return(c(paste(sprintf('%0.3f',mean(f1s)), '+-', sprintf('%0.3f',sd(f1s)), sep=' '),
-#            paste(sprintf('%0.3f',mean(accs)), '+-', sprintf('%0.3f',sd(accs)), sep=' '),
-#            paste(sprintf('%0.3f',mean(sens)), '+-', sprintf('%0.3f',sd(sens)), sep=' '),
-#            paste(sprintf('%0.3f',mean(specs)), '+-', sprintf('%0.3f',sd(specs)), sep=' '),
-#            paste(sprintf('%0.3f',mean(ppvs)), '+-', sprintf('%0.3f',sd(ppvs)), sep=' '),
-#            paste(sprintf('%0.3f',mean(npvs)), '+-', sprintf('%0.3f',sd(npvs)), sep=' '),
-#            opt_N))
-# }
-
 
 
 V_lr_afib = get_col_lr(afib_dir, opt_thresh_lr_afib, opt_N_lr_afib)
@@ -681,8 +652,6 @@ V_rf_arr2 = get_col_rf(arr2_dir, opt_thresh_rf_arr2, opt_N_rf_arr2, ntree=3000, 
 V_gbm_afib = get_col_gbm(afib_dir, opt_thresh_gbm_afib, opt_N_gbm_afib, ntree=3000, id=20)
 V_gbm_arr = get_col_gbm(arr_dir, opt_thresh_gbm_arr, opt_N_gbm_arr, ntree=3000, id=10)
 V_gbm_arr2 = get_col_gbm(arr2_dir, opt_thresh_gbm_arr2, opt_N_gbm_arr2, ntree=3000, id=20)
-# V_knn_afib = get_col_knn('afib', opt_N_knn_afib)
-
 V_knn_afib = get_col_knn(afib_dir, opt_K_knn_afib, opt_N_knn_afib, type='afib')
 V_knn_arr = get_col_knn(arr_dir, opt_K_knn_arr, opt_N_knn_arr, type='arr')
 V_knn_arr2 = get_col_knn(arr2_dir, opt_K_knn_arr2, opt_N_knn_arr2, type='arr2')
@@ -696,37 +665,6 @@ V_svm_poly_afib = get_col_svm_poly(afib_dir, opt_N_svm_poly_afib, opt_D_svm_poly
 V_svm_poly_arr = get_col_svm_poly(arr_dir, opt_N_svm_poly_arr, opt_D_svm_poly_arr, type='arr')
 V_svm_poly_arr2 = get_col_svm_poly(arr2_dir, opt_N_svm_poly_arr2, opt_D_svm_poly_arr2, type='arr2')
 
-
-# V_lr_afib = sprintf('%0.3f', V_lr_afib)
-# V_lr_arr = sprintf('%0.3f', V_lr_arr)
-# V_lr_arr2 = sprintf('%0.3f', V_lr_arr2)
-# V_lda_afib = sprintf('%0.3f', V_lda_afib)
-# V_lda_arr = sprintf('%0.3f', V_lda_arr)
-# V_lda_arr2 = sprintf('%0.3f', V_lda_arr2)
-# V_qda_afib = sprintf('%0.3f', V_qda_afib)
-# V_qda_arr = sprintf('%0.3f', V_qda_arr)
-# V_qda_arr2 = sprintf('%0.3f', V_qda_arr2)
-# V_nb_afib = sprintf('%0.3f', V_nb_afib)
-# V_nb_arr = sprintf('%0.3f', V_nb_arr)
-# V_nb_arr2 = sprintf('%0.3f', V_nb_arr2)
-# V_rf_afib = sprintf('%0.3f', V_rf_afib)
-# V_rf_arr = sprintf('%0.3f', V_rf_arr)
-# V_rf_arr2 = sprintf('%0.3f', V_rf_arr2)
-# V_gbm_afib = sprintf('%0.3f', V_gbm_afib)
-# V_gbm_arr = sprintf('%0.3f', V_gbm_arr)
-# V_gbm_arr2 = sprintf('%0.3f', V_gbm_arr2)
-# V_knn_afib = sprintf('%0.3f', V_knn_afib)
-# V_knn_arr = sprintf('%0.3f', V_knn_arr)
-# V_knn_arr2 = sprintf('%0.3f', V_knn_arr2)
-# V_svm_lin_afib = sprintf('%0.3f', V_svm_lin_afib)
-# V_svm_lin_arr = sprintf('%0.3f', V_svm_lin_arr)
-# V_svm_lin_arr2 = sprintf('%0.3f', V_svm_lin_arr2)
-# V_svm_rad_afib = sprintf('%0.3f', V_svm_rad_afib)
-# V_svm_rad_arr = sprintf('%0.3f', V_svm_rad_arr)
-# V_svm_rad_arr2 = sprintf('%0.3f', V_svm_rad_arr2)
-# V_svm_poly_afib = sprintf('%0.3f', V_svm_poly_afib)
-# V_svm_poly_arr = sprintf('%0.3f', V_svm_poly_arr)
-# V_svm_poly_arr2 = sprintf('%0.3f', V_svm_poly_arr2)
 
 df_afib = data.frame(V_lr_afib, V_lda_afib, V_qda_afib, V_nb_afib, V_rf_afib, 
                      V_gbm_afib, V_knn_afib, V_svm_lin_afib, V_svm_rad_afib, V_svm_poly_afib)
@@ -754,12 +692,12 @@ colnames(df_afib) = c('F1-Score', 'Accuracy', 'Sensitivity', 'Specificity', 'PPV
 colnames(df_arr) = c('F1-Score', 'Accuracy', 'Sensitivity', 'Specificity', 'PPV', 'NPV', 'Optimal N')
 colnames(df_arr2) = c('F1-Score', 'Accuracy', 'Sensitivity', 'Specificity', 'PPV', 'NPV', 'Optimal N')
 
-# print(xtable(df_afib), type='latex', 
-#       file='/home/hunter/ekg/afib2/figures/outcomes_afib.tex')
-# print(xtable(df_arr), type='latex', 
-#       file='/home/hunter/ekg/afib2/figures/outcomes_arr.tex')
-# print(xtable(df_arr2), type='latex', 
-#       file='/home/hunter/ekg/afib2/figures/outcomes_arr2.tex')
+print(xtable(df_afib), type='latex',
+      file='/home/hunter/ekg/afib2/figures/outcomes_afib.tex')
+print(xtable(df_arr), type='latex',
+      file='/home/hunter/ekg/afib2/figures/outcomes_arr.tex')
+print(xtable(df_arr2), type='latex',
+      file='/home/hunter/ekg/afib2/figures/outcomes_arr2.tex')
 
 
 df_ft = data.frame(V_lr_afib, V_lda_afib, V_qda_afib, V_nb_afib, V_rf_afib, 
@@ -802,6 +740,7 @@ t
 
 
 
+##### get AUC curves ##### 
 get_curve_pts_lr = function(dir){
   sens_tmp = c()
   spec_tmp = c()
@@ -888,6 +827,7 @@ get_curve_pts_nb = function(dir){
   }
   return(list(auc_tmp/5, data.frame(sensitivity=sens_tmp/5, specificity=spec_tmp/5)))
 }
+
 
 get_curve_pts_rf = function(dir, opt_N, ntree, mtry){
   sens_tmp = c()
@@ -1127,95 +1067,5 @@ ggsave(filename = '/home/hunter/ekg/afib2/figures/roc_arr2.eps',
 
 
 
-
-
-
-
-
-
-
-p_afib = ggplot(data=df_roc_afib, aes(x=1-specificity, y=sensitivity, col=model)) +
-  geom_line(linewidth=1.5) +
-  theme(panel.background=element_blank(), 
-        panel.border = element_rect(color="black", fill=NA, linewidth = 1),
-        plot.title = element_text(hjust = 0.5, size=22),
-        legend.position = 'none',
-        axis.title = element_text(size = 22),
-        axis.text = element_text(size = 21),
-        legend.text = element_text(size = 21), 
-        legend.key.size = unit(1.5,'cm'),
-        legend.title = element_text(size = 22)) +
-  geom_segment(aes(x=0, y=0, xend=1, yend=1), color='black', alpha=0.005) +
-  labs(col = 'Model:') +
-  xlab('1 - Specificity') +
-  ylab('Sensitivity')
-
-
-p_arr = ggplot(data=df_roc_arr, aes(x=1-specificity, y=sensitivity, col=model)) +
-  geom_line(linewidth=1) +
-  theme(panel.background=element_blank(), 
-        panel.border = element_rect(color="black", fill=NA, linewidth = 1),
-        plot.title = element_text(hjust = 0.5, size=22),
-        axis.title = element_text(size = 20),
-        axis.text = element_text(size = 15),
-        legend.position = 'none') +
-  geom_segment(aes(x=0, y=0, xend=1, yend=1), color='black', alpha=0.005) +
-  labs(col = 'Model:') +
-  xlab('1 - Specificity') +
-  ylab('Sensitivity')
-
-
-p_arr2 = ggplot(data=df_roc_arr2, aes(x=1-specificity, y=sensitivity, col=model)) +
-  geom_line(linewidth=1) +
-  theme(panel.background=element_blank(), 
-        panel.border = element_rect(color="black", fill=NA, linewidth = 1),
-        plot.title = element_text(hjust = 0.5, size=22),
-        legend.key = element_rect(fill='white'),
-        axis.title = element_text(size = 20),
-        axis.text = element_text(size = 15),
-        legend.position = 'none') +
-  geom_segment(aes(x=0, y=0, xend=1, yend=1), color='black', alpha=0.005) +
-  labs(col = 'Model:') +
-  xlab('1 - Specificity') +
-  ylab('Sensitivity')
-
-tmp = ggplot(data=df_roc_afib, aes(x=1-specificity, y=sensitivity, col=model)) +
-  geom_line(linewidth=1.5) +
-  theme(panel.background=element_blank(), 
-        panel.border = element_rect(color="black", fill=NA, linewidth = 1),
-        plot.title = element_text(hjust = 0.5, size=22),
-        legend.key = element_blank(),
-        axis.title = element_text(size = 22),
-        axis.text = element_text(size = 21),
-        legend.text = element_text(size = 21), 
-        legend.key.size = unit(1.5,'cm'),
-        legend.title = element_text(size = 22)) +
-  geom_segment(aes(x=0, y=0, xend=1, yend=1), color='black', alpha=0.005) +
-  labs(col = 'Model:') +
-  xlab('1 - Specificity') +
-  ylab('Sensitivity')
-
-
-p = ggarrange(as_ggplot(get_legend(tmp)), NULL, p_afib,
-              NULL, NULL, NULL,
-              p_arr, NULL, p_arr2, 
-              labels = c('' , '', '(a) Atrial Fibrillation vs. Non-Atrial Fibrillation', '', '', '',
-                         '(b) Arrhythmia vs. Normal Sinus Rhythm', '',
-                         '(c) Arrhythmia with Morphological Changes vs. Sinus Rhythm with Bradycardia and Tachycardia Treated as Non-Arrhythmia'),
-              ncol=3, nrow=3,
-              widths = c(1,0.1,1), heights = c(1,0.15,1),
-              hjust = c(0,0,-0.5,0,0,0,-0.5,0,-0.5), vjust = c(0,0,0.1,0,0,0,0.1,0,0.1))
-p
-
-ggsave(filename = '/home/hunter/ekg/afib2/figures/roc_combined.eps',
-       plot = p,
-       device = 'eps',
-       dpi = 1200,
-       width = 12,
-       height = 12)
-
-
-
-  
 
 
