@@ -9,7 +9,7 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 ## Descriptions of directories:
 
-### processing: contains the three scripts used to obtain input for the statistical models from the raw ECG data
+### processing: contains the following three scripts to obtain input for the statistical models from the raw ECG data
 
 * cycles.py: contains functions to compute the time-coordinate and amplitude coordinate of the centroid of a given 1-cycle.
 
@@ -17,7 +17,7 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 * get_ml_input_all.py: creates dataframe with each row corresponding to an ECG signal and with column representing predictor variables for use in statistical models
 
-### models: this directory contains a script for each type of statistical model used in each of the three binary classifications
+### models: contains a script for each type of statistical model used in each of the three binary classification tasks
 
 ### figures: contains scripts used to produce all figures and tables in manuscript
 
