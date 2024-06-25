@@ -1,5 +1,5 @@
 # Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors
-This repository contains scripts related to the manuscript "[Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors](https://datasciencehub.net/system/files/ds-paper-790.pdf)" submitted to the Journal "Data Science Methods, Infrastructure, and Applications" in December of 2023. The abstract of the manuscript is shown below.
+This repository contains scripts related to the manuscript "[Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors]([https://datasciencehub.net/system/files/ds-paper-790.pdf](https://content.iospress.com/articles/data-science/ds240061))" published in the journal "Data Science Methods, Infrastructure, and Applications" in June of 2024. The abstract of the manuscript is shown below.
 
 <br>
 
@@ -21,3 +21,6 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 ### figures: contains scripts used to produce all figures and tables in manuscript
 
+## Citation
+J. Zheng, J. Zhang, S. Danioko et al., A 12-lead electrocardiogram database for arrhythmia research covering more than 10,000 patients, Sci Data 7: ((2020) ), 48. doi:10.1038/s41597-020-0386-x.
+H. Dlugas, Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors, Data Science, 1 Jan. 2024, 1-25, doi:10.3233/DS-240061, url:[https://datasciencehub.net/system/files/ds-paper-790.pdf](https://content.iospress.com/articles/data-science/ds240061](https://datasciencehub.net/system/files/ds-paper-790.pdf](https://content.iospress.com/articles/data-science/ds240061)
