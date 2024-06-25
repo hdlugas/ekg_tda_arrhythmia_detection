@@ -21,5 +21,7 @@ Many approaches to computer-aided electrocardiogram (ECG) arrhythmia detection h
 
 ### figures: contains scripts used to produce all figures and tables in manuscript
 
+<br>
+
 ## Citation
 H. Dlugas, Electrocardiogram arrhythmia detection with novel signal processing and persistent homology-derived predictors, Data Science, 1 Jan. 2024, 1-25, doi:10.3233/DS-240061, url:[https://content.iospress.com/articles/data-science/ds240061](https://content.iospress.com/articles/data-science/ds240061)
